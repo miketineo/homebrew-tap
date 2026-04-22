@@ -1,8 +1,8 @@
 class Chmoji < Formula
   desc ":shortcode: emoji expansion and auto-popup picker for zsh"
   homepage "https://github.com/miketineo/chmoji"
-  url "https://github.com/miketineo/chmoji/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "fde487154106783d35e6e4a0bb274c8ef15d8f4998af367a4eb5bbb7773ee8c9"
+  url "https://github.com/miketineo/chmoji/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "dff77c7a9cebac61517935fbc75cf171bd6906c79ca0bedd8d7eece57329132a"
   license "MIT"
   head "https://github.com/miketineo/chmoji.git", branch: "main"
 
