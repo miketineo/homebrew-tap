@@ -14,15 +14,23 @@ class Chmoji < Formula
 
   def caveats
     <<~EOS
-      To activate chmoji, add this to your ~/.zshrc — after oh-my-zsh's
-      `emoji` plugin is loaded (so $emoji is populated) and before
-      zsh-syntax-highlighting (which must stay last):
+      🎉 chmoji installed. Two steps to activate:
 
-          source #{opt_pkgshare}/chmoji.plugin.zsh
+        1. Add this line to ~/.zshrc — after oh-my-zsh's `emoji` plugin
+           (or any other source of $emoji) and before zsh-syntax-highlighting
+           if you use it:
 
-      chmoji reuses oh-my-zsh's `emoji` plugin for its ~4200 shortcodes.
-      If you don't run oh-my-zsh, you can define $emoji yourself. See:
+               source "$(brew --prefix chmoji)/share/chmoji/chmoji.plugin.zsh"
+
+        2. Open a new shell and smoke-test:
+
+               echo :tada:
+               ❯ echo 🎉   ← the closing colon triggers the expansion
+
+      Requires oh-my-zsh's `emoji` plugin for $emoji (~4200 shortcodes):
       https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/emoji
+
+      Docs: https://github.com/miketineo/chmoji
     EOS
   end
 
