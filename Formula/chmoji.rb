@@ -1,8 +1,8 @@
 class Chmoji < Formula
   desc ":shortcode: emoji expansion and picker for zsh, Vim, and Neovim"
   homepage "https://github.com/miketineo/chmoji"
-  url "https://github.com/miketineo/chmoji/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "dff77c7a9cebac61517935fbc75cf171bd6906c79ca0bedd8d7eece57329132a"
+  url "https://github.com/miketineo/chmoji/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "27b4895dd17ad3d1c6a3c792eee58973b74e7bf150456dd5830aa40ff7e43202"
   license "MIT"
   head "https://github.com/miketineo/chmoji.git", branch: "main"
 
