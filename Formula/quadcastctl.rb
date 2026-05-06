@@ -1,8 +1,8 @@
 class Quadcastctl < Formula
   desc "Native Rust controller for HyperX Quadcast S RGB lights"
   homepage "https://github.com/miketineo/quadcastctl"
-  url "https://github.com/miketineo/quadcastctl/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "087a0edc2fb4d6c87e68a4080fa565171eec6e61ff20cb4b055674c7f7288454"
+  url "https://github.com/miketineo/quadcastctl/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "3cac4e397b6f5a8c8361455e18dcfabb50e28a7e859073577f378cf7f662483e"
   license "GPL-2.0-only"
   head "https://github.com/miketineo/quadcastctl.git", branch: "main"
 
