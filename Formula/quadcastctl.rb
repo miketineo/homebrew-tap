@@ -1,8 +1,8 @@
 class Quadcastctl < Formula
   desc "Native Rust controller for HyperX Quadcast S RGB lights"
   homepage "https://github.com/miketineo/quadcastctl"
-  url "https://github.com/miketineo/quadcastctl/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "cc365b2edbefc3f97dcf6ce4bf3e4812f836baaa1a0eb96ef4f0fb5a6f346bbc"
+  url "https://github.com/miketineo/quadcastctl/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "6889f82780eadc1920983d62d25c6fe77ea006a1dc786a23dc6235e1537e8459"
   license "GPL-2.0-only"
   head "https://github.com/miketineo/quadcastctl.git", branch: "main"
 
@@ -15,23 +15,27 @@ class Quadcastctl < Formula
 
   def caveats
     <<~EOS
-      🎙️  quadcastctl installed. Three steps to RGB control:
+      🎙️  quadcastctl installed. Three ways to set a color:
 
-        1. Pick a color (uses the macOS system color picker — coming soon)
-           or set one directly:
+        1. Pop the macOS system color picker:
 
-               quadcastctl set ff9a33
+               quadcastctl pick
 
-        2. Install the launchd LaunchAgent so the daemon runs at login
-           and the lights persist across reboots:
+        2. Use a named preset (try `quadcastctl preset list` for the full set):
+
+               quadcastctl set hivenet
+               quadcastctl set off
+
+        3. Set a raw hex color:
+
+               quadcastctl set ff9a33 -b 60
+
+      Then install the launchd LaunchAgent so the daemon runs at login
+      and the color persists across reboots:
 
                quadcastctl install
 
-        3. Change the color anytime with:
-
-               quadcastctl set <hex> [-b BRIGHTNESS]
-               quadcastctl show
-               quadcastctl status
+      Other commands: show, status, start, stop, restart, uninstall.
 
       The first run may print a benign warning about claiming USB
       interface 1 — that is macOS's HID kernel driver holding the
