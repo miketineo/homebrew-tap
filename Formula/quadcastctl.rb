@@ -1,8 +1,8 @@
 class Quadcastctl < Formula
   desc "Native Rust controller for HyperX Quadcast S RGB lights"
   homepage "https://github.com/miketineo/quadcastctl"
-  url "https://github.com/miketineo/quadcastctl/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "6e05aac8ce315235198443b49f6cef401c8931533b5b0fdccfff41dc4b910689"
+  url "https://github.com/miketineo/quadcastctl/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "087a0edc2fb4d6c87e68a4080fa565171eec6e61ff20cb4b055674c7f7288454"
   license "GPL-2.0-only"
   head "https://github.com/miketineo/quadcastctl.git", branch: "main"
 
@@ -29,6 +29,17 @@ class Quadcastctl < Formula
         quadcastctl set lightning ff0000            # flash + fade
         quadcastctl set blink red blue              # hard switching
         # tune motion with --speed 0..100 and --delay 0..100
+
+      Mute integration (NEW in 0.4.0):
+
+        quadcastctl mute-color red                  # LED turns red whenever muted
+        quadcastctl mute / unmute / mute-toggle     # software-control input mute
+        quadcastctl audio-state                     # diagnostic: list inputs, watch mute
+
+      The hardware tap-to-mute on the Quadcast forwards to macOS's
+      input mute property, so the LED reacts to physical taps and to
+      software mutes (Control Center, Zoom, FaceTime, anything that
+      respects system mute) with the same ~1s latency.
 
       Persist across reboots by installing the launchd LaunchAgent:
 
