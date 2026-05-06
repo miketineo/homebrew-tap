@@ -1,8 +1,8 @@
 class Quadcastctl < Formula
   desc "Native Rust controller for HyperX Quadcast S RGB lights"
   homepage "https://github.com/miketineo/quadcastctl"
-  url "https://github.com/miketineo/quadcastctl/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "3cac4e397b6f5a8c8361455e18dcfabb50e28a7e859073577f378cf7f662483e"
+  url "https://github.com/miketineo/quadcastctl/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "bf46c0a5356fd7c2ee321bf5d2246aa2329daec5ceeae1bb53feb2eebc3382d7"
   license "GPL-2.0-only"
   head "https://github.com/miketineo/quadcastctl.git", branch: "main"
 
@@ -30,23 +30,26 @@ class Quadcastctl < Formula
         quadcastctl set blink red blue              # hard switching
         # tune motion with --speed 0..100 and --delay 0..100
 
-      Mute integration (NEW in 0.4.0):
+      Mute integration (system-level mute only — the QuadCast's hardware
+      tap-to-mute is invisible to macOS, so these features only fire on
+      Control Center mute, app-level mute, or `quadcastctl mute`):
 
-        quadcastctl mute-color red                  # LED turns red whenever muted
-        quadcastctl mute / unmute / mute-toggle     # software-control input mute
-        quadcastctl audio-state                     # diagnostic: list inputs, watch mute
+        quadcastctl mute-color red                  # color shown when muted
+        quadcastctl mute / unmute / mute-toggle     # drive Core Audio mute
+        quadcastctl audio-state                     # watch the mute property
 
-      The hardware tap-to-mute on the Quadcast forwards to macOS's
-      input mute property, so the LED reacts to physical taps and to
-      software mutes (Control Center, Zoom, FaceTime, anything that
-      respects system mute) with the same ~1s latency.
+      Google Meet sync (NEW in 0.5.0 — clicks Meet's mic button on every
+      system-mute transition; requires Chrome > View > Developer >
+      "Allow JavaScript from Apple Events"):
+
+        quadcastctl meet-sync on
 
       Persist across reboots by installing the launchd LaunchAgent:
 
         quadcastctl install
 
       Other commands: show, status, start, stop, restart, uninstall,
-      preset list, preset add NAME HEX, preset remove NAME.
+      preset list, preset add NAME HEX, preset remove NAME, audio-debug.
 
       The first run may print a benign warning about claiming USB
       interface 1 — that is macOS's HID kernel driver holding the
